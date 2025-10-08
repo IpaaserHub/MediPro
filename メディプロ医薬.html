@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メディプロ医薬｜東銀座オーダーメイドサプリ</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+    
+    <style>
+        :root {
+            --main-theme-color: #2d5d5a;
+            --main-theme-color-dark: #1e3f3c;
+            --accent-color: #d4af37;
+            --accent-color-hover: #b8941f;
+            --white: #ffffff;
+            --charcoal: #2c2c2c;
+            --light-gray: #f8f9fa;
+            --border-color: #e5e5e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* Japanese Typography Rules */
+        .japanese-text {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            line-height: 1.4;
+            letter-spacing: 0.05em;
+        }
+
+        .headline {
+            line-height: 1.2;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            letter-spacing: 0.05em;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .header-logo h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--main-theme-color);
+            display: flex;
+            align-items: center;
+            writing-mode: horizontal-tb !important;
+            text-orientation: mixed !important;
+            white-space: nowrap;
+        }
+
+        .header-logo h1::before {
+            content: '◆';
+            margin-right: 8px;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
+        .header-logo a {
+            text-decoration: none;
+            color: inherit;
+            writing-mode: horizontal-tb !important;
+            display: inline-block;
+        }
+
+        /* Navigation */
+        #g-nav {
+            display: flex;
+        }
+
+        #g-nav-list ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+        }
+
+        #g-nav-list ul li a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        #g-nav-list ul li a:hover {
+            color: var(--main-theme-color);
+        }
+
+        .order-button {
+            background: var(--main-theme-color) !important;
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .order-button:hover {
+            background: var(--main-theme-color-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--main-theme-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        #key-visual {
+            background: linear-gradient(rgba(45, 93, 90, 0.4), rgba(45, 93, 90, 0.4)),
+                        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=800&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .key-visual-wrapper-pc {
+            text-align: left;
+        }
+
+        .key-sub-txt {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            background: rgba(0,0,0,0.4);
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .key-title {
+            color: var(--white);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .key-title span {
+            color: var(--accent-color) !important;
+        }
+
+        .key-visual-orderBox {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .key-visual-orderBox-title {
+            font-size: 1.5rem;
+            color: var(--main-theme-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .key-visual-linkBox {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .key-visual-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            gap: 10px;
+        }
+
+        .web-link {
+            background-color: var(--main-theme-color);
+            color: white;
+        }
+
+        .web-link:hover {
+            background-color: var(--main-theme-color-dark);
+            transform: translateY(-2px);
+        }
+
+        .tel-link {
+            border: 2px solid var(--main-theme-color);
+            color: var(--main-theme-color) !important;
+        }
+
+        .tel-link:hover {
+            background: var(--main-theme-color);
+            color: white !important;
+        }
+
+        .tel-icon::before {
+            content: '';
+            font-style: normal;
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(135deg, var(--light-gray) 25%, transparent 25%),
+                        linear-gradient(225deg, var(--light-gray) 25%, transparent 25%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+        }
+
+        /* Problem Section */
+        .problem-bg {
+            background: var(--light-gray);
+            padding: 150px 0;
+        }
+
+        .section-box {
+            position: relative;
+        }
+
+        .h2-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--main-theme-color);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .border-line::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 20px auto 0;
+        }
+
+        .problem-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .problem-box li {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+            color: var(--charcoal);
+            word-break: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.5;
+        }
+
+        .problem-box li span.japanese-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .problem-icon::before {
+            content: '';
+            color: var(--main-theme-color);
+            font-size: 2rem;
+        }
+
+        /* About Section */
+        .about-bg {
+            background: white;
+            padding: 150px 0;
+        }
+
+        .about-h2-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 80px;
+            line-height: 1.3;
+        }
+
+        .pink-slide {
+            background: linear-gradient(transparent 60%, var(--accent-color) 60%);
+            padding: 0 10px;
+        }
+
+        .about-h2-pink {
+            color: var(--main-theme-color) !important;
+            font-size: 4.5rem;
+            font-weight: 800;
+        }
+
+        .about-article-items {
+            display: grid;
+            gap: 60px;
+        }
+
+        .about-article-box {
+            background: var(--light-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-article-flex {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 50px;
+        }
+
+        .about-article-flex img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .about-article-txt h3 {
+            font-size: 2rem;
+            color: var(--main-theme-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .about-article-txt p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: var(--main-theme-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-box-catchphrase {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .contact-box-subTitle {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .contact-box-title {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .contact-box-flex {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .gradient-link {
+            background: var(--accent-color) !important;
+            color: white !important;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gradient-link:hover {
+            background: var(--accent-color-hover) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 40px;
+        }
+
+        .service-box {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-box p {
+            padding: 30px 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--main-theme-color);
+        }
+
+        .service-catchphrase {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--main-theme-color);
+            margin-top: 60px;
+            font-weight: 600;
+        }
+
+        /* Reasons Section */
+        .reason-bg {
+            background: var(--light-gray);
+            padding: 150px 0;
+        }
+
+        .reason-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+            gap: 60px;
+        }
+
+        .reason-article-box {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .reason-article-box .number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            background-color: var(--main-theme-color) !important;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .reason-article-box img {
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .reason-sentence h3 {
+            font-size: 1.8rem;
+            color: var(--main-theme-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .reason-sentence p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+
+        .reason-sentence span {
+            color: var(--main-theme-color);
+            font-weight: 600;
+        }
+
+        /* Usage Section */
+        .use-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 50px;
+        }
+
+        .use-article {
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--light-gray);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+
+        .step-number span {
+            color: var(--main-theme-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .use-title {
+            font-size: 1.5rem;
+            color: var(--main-theme-color);
+            margin-bottom: 30px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .use-box {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .use-image-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .use-box p {
+            padding: 30px 20px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--charcoal);
+        }
+
+        /* Form Section */
+        .tab-switch {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tab-switch input.form-tab {
+            display: none;
+        }
+
+        .tab-switch label {
+            flex: 1 1 50%;
+            padding: 20px;
+            background: var(--light-gray);
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .tab-switch input.form-tab:checked + label {
+            background-color: var(--main-theme-color) !important;
+            color: #fff !important;
+        }
+
+        .order-form-box {
+            padding: 50px;
+            display: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .tab-switch input.form-tab:checked ~ .order-form-box {
+            display: block;
+        }
+
+        .label-title {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--main-theme-color);
+        }
+
+        .required-span {
+            background-color: var(--main-theme-color) !important;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        .any-span {
+            background-color: #999;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        .order-form-box input,
+        .order-form-box select,
+        .order-form-box textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            transition: border-color 0.3s ease;
+            background-color: var(--white);
+            color: var(--charcoal);
+        }
+
+        .order-form-box input:focus,
+        .order-form-box select:focus,
+        .order-form-box textarea:focus {
+            outline: none;
+            border-color: var(--main-theme-color);
+        }
+
+        .order-form-box textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .attention {
+            color: var(--main-theme-color);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .submit-button {
+            text-align: center;
+        }
+
+        .submit-button button {
+            background-color: var(--main-theme-color) !important;
+            color: white;
+            padding: 20px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button button:hover {
+            background-color: var(--main-theme-color-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 60px;
+        }
+
+        .footer-flex img {
+            max-width: 200px;
+        }
+
+        .footer-info {
+            font-size: 1.1rem;
+        }
+
+        .footer-info th {
+            text-align: left;
+            padding: 10px 20px 10px 0;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .footer-info td {
+            padding: 10px 0;
+        }
+
+        .footer-tel-link {
+            color: var(--accent-color) !important;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-tel-link:hover {
+            color: white !important;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #444;
+            margin-top: 40px;
+            color: #999;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .sticky-cta.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sticky-cta .cta-button {
+            background: var(--main-theme-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 25px rgba(45, 93, 90, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: gentle-pulse 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gentle-pulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 5px 25px rgba(45, 93, 90, 0.4);
+            }
+            50% { 
+                transform: scale(1.02);
+                box-shadow: 0 8px 35px rgba(45, 93, 90, 0.6);
+            }
+        }
+
+        .sticky-cta .cta-button:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 10px 40px rgba(45, 93, 90, 0.8) !important;
+        }
+
+        .sticky-cta .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            border-radius: inherit;
+            opacity: 0;
+            animation: subtle-shine 4s ease-in-out infinite;
+        }
+
+        @keyframes subtle-shine {
+            0%, 90%, 100% { opacity: 0; transform: translateX(-100%); }
+            10%, 80% { opacity: 1; transform: translateX(100%); }
+        }
+
+        /* Page Top Button */
+        .pagetop {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .pagetop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .pagetop a {
+            display: block;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .pagetop a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Animation Classes */
+        .fadeUp {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fadeUp.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fadeIn {
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .fadeIn.animate {
+            opacity: 1;
+        }
+
+        .opacityIn {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+
+        .opacityIn.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .btn {
+                display: flex;
+            }
+
+            #g-nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                transition: right 0.3s ease;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            }
+
+            #g-nav.active {
+                right: 0;
+            }
+
+            #g-nav-list ul {
+                flex-direction: column;
+                padding: 50px 20px;
+                gap: 20px;
+            }
+
+            /* Hero Section */
+            .key-title {
+                font-size: 2rem;
+            }
+
+            .key-sub-txt {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+
+            .key-visual-orderBox {
+                padding: 25px 20px;
+            }
+
+            .key-visual-orderBox-title {
+                font-size: 1.2rem;
+            }
+
+            .key-visual-link {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+
+            /* Titles */
+            .h2-title {
+                font-size: 2rem;
+            }
+
+            .about-h2-pink {
+                font-size: 2.5rem;
+            }
+
+            /* About Section */
+            .about-article-flex {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .about-article-flex img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .about-article-txt h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-article-txt p {
+                font-size: 1.1rem;
+            }
+
+            /* Reason Section */
+            .reason-article-box {
+                padding: 40px 20px;
+            }
+
+            .reason-sentence h3 {
+                font-size: 1.4rem;
+            }
+
+            .reason-sentence p {
+                font-size: 1.1rem;
+            }
+
+            /* Usage Section */
+            .use-title {
+                font-size: 1.3rem;
+            }
+
+            .use-box p {
+                font-size: 1rem;
+            }
+
+            /* Contact Box */
+            .contact-box-flex,
+            .key-visual-linkBox {
+                flex-direction: column;
+            }
+
+            .contact-box-catchphrase {
+                font-size: 1.2rem;
+            }
+
+            .contact-box-title {
+                font-size: 2rem;
+            }
+
+            .gradient-link {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            /* Form Section */
+            #order-form {
+                padding: 80px 0 !important;
+            }
+
+            .tab-switch {
+                border-radius: 10px;
+            }
+
+            .tab-switch label {
+                font-size: 0.9rem;
+                padding: 12px 5px;
+                word-break: keep-all;
+            }
+
+            .order-form-box {
+                padding: 20px 15px;
+            }
+
+            .label-title {
+                font-size: 0.95rem;
+                word-break: keep-all;
+            }
+
+            .required-span,
+            .any-span {
+                font-size: 0.7rem;
+                padding: 2px 5px;
+                display: inline-block;
+                margin-left: 5px;
+            }
+
+            .order-form-box input,
+            .order-form-box select,
+            .order-form-box textarea {
+                font-size: 0.95rem;
+                padding: 10px;
+                margin-bottom: 20px;
+                border-radius: 6px;
+            }
+
+            .submit-button button {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+                width: 100%;
+                border-radius: 30px;
+            }
+
+            .attention {
+                font-size: 0.9rem;
+            }
+
+            /* Sections Padding */
+            .problem-bg,
+            .about-bg,
+            .reason-bg,
+            #service,
+            #use,
+            #price,
+            #voice {
+                padding: 80px 0 !important;
+            }
+
+            /* Problem Section */
+            .problem-box li {
+                font-size: 0.95rem;
+                padding: 20px 15px;
+            }
+
+            /* Wrapper padding for mobile */
+            .wrapper {
+                padding: 0 15px;
+            }
+
+            /* Footer */
+            .footer-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-info {
+                font-size: 1rem;
+            }
+
+            /* Sticky CTA */
+            .sticky-cta {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                bottom: 10px;
+            }
+
+            .sticky-cta .cta-button {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+
+            /* Service Grid */
+            .service-box p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Start -->
+    <header>
+        <div class="header-flex wrapper">
+            <div class="header-logo">
+                <h1><a href="#">メディプロ医薬</a></h1>
+            </div>
+            
+            <button class="btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav id="g-nav">
+                <div id="g-nav-list">
+                    <ul>
+                        <li><a href="#about">メディプロ医薬とは</a></li>
+                        <li><a href="#service">サービス内容</a></li>
+                        <li><a href="#reason">選ばれる理由</a></li>
+                        <li><a href="#use">ご利用の流れ</a></li>
+                        <li><a href="#voice">お客様の声</a></li>
+                        <li><a href="#order-form">無料カウンセリング</a></li>
+                        <li><a href="https://example.com" target="_blank" rel="noopener noreferrer" class="order-button">無料カウンセリングを予約する</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <main>
+        <!-- Hero Section Start -->
+        <section id="key-visual" class="key-visual order-box-view">
+            <div class="key-visual-wrapper-pc wrapper">
+                <div class="key-visual-titleBox">
+                    <div class="key-sub-txt japanese-text">
+                        「合わないサプリ」「続かない健康習慣」「効果が実感できない」と、お悩みの方へ
+                    </div>
+                    <h2 class="key-title headline japanese-text">
+                        <div class="key-title-inner">
+                            もう「合わないサプリ」で<br>迷わない。
+                        </div>
+                        <div class="key-title-inner">
+                            あなた専用の最短ルートを、<span>東銀座で。</span>
+                        </div>
+                    </h2>
+                </div>
+                
+                <div class="key-visual-orderBox">
+                    <div class="key-visual-orderBox-title japanese-text">
+                        ＼まずはお気軽にご相談ください／
+                    </div>
+                    <div class="key-visual-linkBox">
+                        <a href="tel:03-1234-5678" class="key-visual-link tel-link">
+                            <span class="tel-icon"></span>
+                            03-1234-5678
+                        </a>
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="key-visual-link web-link">
+                            無料カウンセリングを予約する
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Hero Section End -->
+
+        <div class="section-divider"></div>
+
+        <!-- Problem Section Start -->
+        <section id="problem" class="problem-bg section-box">
+            <article class="wrapper problem-box">
+                <h2 class="h2-title problem-h2 border-line fadeUp japanese-text">
+                    こんなお悩みありませんか？
+                </h2>
+                
+                <ul class="fadeUp">
+                    <li>
+                        <span class="problem-icon"></span>
+                        <span class="japanese-text">サプリを飲んでも効果を実感できず、お金の無駄だと感じる</span>
+                    </li>
+                    <li>
+                        <span class="problem-icon"></span>
+                        <span class="japanese-text">自分の体質に合うサプリがどれなのか分からず選べない</span>
+                    </li>
+                    <li>
+                        <span class="problem-icon"></span>
+                        <span class="japanese-text">複数のサプリを飲んでいるが飲み合わせが心配</span>
+                    </li>
+                    <li>
+                        <span class="problem-icon"></span>
+                        <span class="japanese-text">飲むタイミングがよく分からず、適当に飲んでしまう</span>
+                    </li>
+                    <li>
+                        <span class="problem-icon"></span>
+                        <span class="japanese-text">健康状態が変わっても同じサプリを飲み続けている</span>
+                    </li>
+                    <li>
+                        <span class="problem-icon"></span>
+                        <span class="japanese-text">毎日続けるのが難しく、サプリが余ってしまう</span>
+                    </li>
+                </ul>
+                
+                <img class="fadeUp" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&q=80" alt="悩んでいる女性" style="display: block; margin: 0 auto; max-width: 400px; border-radius: 15px;">
+            </article>
+        </section>
+        <!-- Problem Section End -->
+
+        <!-- Contact Box 1 Start -->
+        <section class="contact-box">
+            <div class="contact-box-inner wrapper">
+                <p class="contact-box-catchphrase japanese-text">
+                    「体質に合わない」「続かない」「効果が実感できない」<br>そんなサプリの悩みを今すぐ解決します。
+                </p>
+                <div class="g-nav-orderBox-title contact-box-subTitle">
+                    ＼まずはお気軽にご相談ください／
+                </div>
+                <h2 class="contact-box-title japanese-text">
+                    あなた専用のオーダーメイドサプリ
+                </h2>
+                <div class="contact-box-flex">
+                    <a href="tel:03-1234-5678" class="gradient-link tel-link">
+                        <span class="tel-icon"></span>
+                        03-1234-5678
+                    </a>
+                    <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="gradient-link web-link">
+                        無料カウンセリングを予約する
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Box 1 End -->
+
+        <div class="section-divider"></div>
+
+        <!-- About Section Start -->
+        <section id="about" class="about-bg section-box">
+            <div class="wrapper">
+                <h2 class="h2-title about-h2-title japanese-text">
+                    <span class="fadeUp about-h2-normal">メディプロ医薬なら、</span>
+                    <span class="pink-slide">あなたの体質に合わせた</span><br>
+                    <span class="about-h2-pink fadeIn">完全</span>
+                    <span class="pink-slide">オーダーメイドサプリを！！</span>
+                </h2>
+                
+                <div class="about-article-items">
+                    <article class="about-article-box fadeUp">
+                        <div class="about-article-flex">
+                            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=300&h=200&fit=crop&q=80" alt="専門カウンセリング">
+                            <div class="about-article-txt">
+                                <h3 class="japanese-text">体質・生活リズムに合わせてムダ摂取を削減、コスト最適化</h3>
+                                <p class="japanese-text">
+                                    詳細なヒアリングと体質評価により、あなたに本当に必要な成分だけを厳選。過剰摂取や不要な成分を排除し、効果的でコストパフォーマンスの高い配合を実現します。無駄なサプリ代を削減しながら、最大限の健康効果を得られます。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="about-article-box fadeUp">
+                        <div class="about-article-flex">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&q=80" alt="最適なタイミング">
+                            <div class="about-article-txt">
+                                <h3 class="japanese-text">最適な飲用タイミングまで設計、実感までの時間を短縮</h3>
+                                <p class="japanese-text">
+                                    成分の吸収率を最大化する最適な摂取タイミング、食前・食後の使い分け、相互作用を考慮した飲み合わせまで詳細に設計。科学的根拠に基づいた摂取方法により、従来のサプリより早く実感できる効果的な健康管理を実現します。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="about-article-box fadeUp">
+                        <div class="about-article-flex">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&h=200&fit=crop&q=80" alt="定期フォロー">
+                            <div class="about-article-txt">
+                                <h3 class="japanese-text">定期フォローで状態変化に合わせて配合・用法をアップデート</h3>
+                                <p class="japanese-text">
+                                    季節の変化、生活習慣の変化、体調の変化に合わせて、定期的にレシピを見直し。専門家によるフォロー外来（オンライン対応）で、常に最適化された配合を維持。一度作って終わりではない、継続的なサポートシステムです。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="about-article-box fadeUp">
+                        <div class="about-article-flex">
+                            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&h=200&fit=crop&q=80" alt="続けやすい個別分包">
+                            <div class="about-article-txt">
+                                <h3 class="japanese-text">続けやすい個別分包とリマインドで"挫折しない"運用</h3>
+                                <p class="japanese-text">
+                                    朝・昼・夜に分けた個別分包で、飲み忘れや飲み間違いを防止。スマートフォンアプリでの摂取リマインド機能、効果測定レポートにより、継続のモチベーションを維持。「続かない」という最大の課題を解決する運用システムを提供します。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- About Section End -->
+
+        <!-- Contact Box 2 Start -->
+        <section class="contact-box">
+            <div class="contact-box-inner wrapper">
+                <p class="contact-box-catchphrase japanese-text">
+                    「自分に本当に合うサプリが知りたい」「効果を実感したい」<br>そんなあなたの想いを、東銀座で叶えます。
+                </p>
+                <div class="g-nav-orderBox-title contact-box-subTitle">
+                    ＼まずはお気軽にご相談ください／
+                </div>
+                <h2 class="contact-box-title japanese-text">
+                    あなただけの健康設計図を作成
+                </h2>
+                <div class="contact-box-flex">
+                    <a href="tel:03-1234-5678" class="gradient-link tel-link">
+                        <span class="tel-icon"></span>
+                        03-1234-5678
+                    </a>
+                    <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="gradient-link web-link">
+                        無料カウンセリングを予約する
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Box 2 End -->
+
+        <div class="section-divider"></div>
+
+        <!-- Services Section Start -->
+        <section id="service" class="section-box" style="padding: 150px 0; background: white;">
+            <div class="wrapper">
+                <h2 class="h2-title border-line fadeUp japanese-text">
+                    サービス内容
+                </h2>
+                
+                <div class="service-grid article-margin">
+                    <article class="service-box opacityIn">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=200&fit=crop&q=80" alt="初回ヒアリング">
+                        <p class="japanese-text">
+                            初回ヒアリング<br>（悩み・既往歴・生活習慣）
+                        </p>
+                    </article>
+                    
+                    <article class="service-box opacityIn">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=300&h=200&fit=crop&q=80" alt="体質評価">
+                        <p class="japanese-text">
+                            体質評価→個別レシピ作成<br>（成分量・相互作用を考慮）
+                        </p>
+                    </article>
+                    
+                    <article class="service-box opacityIn">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&q=80" alt="飲用タイミング設計">
+                        <p class="japanese-text">
+                            飲むタイミング設計<br>（一日の取り入れ方を最適化）
+                        </p>
+                    </article>
+                    
+                    <article class="service-box opacityIn">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=200&fit=crop&q=80" alt="フォロー外来">
+                        <p class="japanese-text">
+                            フォロー外来<br>（オンライン可・レシピ見直し）
+                        </p>
+                    </article>
+                    
+                    <article class="service-box opacityIn">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&h=200&fit=crop&q=80" alt="個別分包">
+                        <p class="japanese-text">
+                            個別分包サービス<br>（飲み忘れ・飲み間違い防止）
+                        </p>
+                    </article>
+                    
+                    <article class="service-box opacityIn">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=200&fit=crop&q=80" alt="東銀座アクセス">
+                        <p class="japanese-text">
+                            東銀座駅至近<br>（プライバシー配慮・通いやすい立地）
+                        </p>
+                    </article>
+                </div>
+                
+                <div class="service-catchphrase border-line fadeUp japanese-text">
+                    上記以外のご要望も柔軟に対応します！お気軽にご相談ください！
+                </div>
+            </div>
+        </section>
+        <!-- Services Section End -->
+
+        <div class="section-divider"></div>
+
+        <!-- Reasons Section Start -->
+        <section id="reason" class="reason-bg section-box">
+            <div class="wrapper">
+                <h2 class="h2-title border-line fadeUp japanese-text">
+                    メディプロ医薬が選ばれる理由
+                </h2>
+                
+                <div class="reason-grid article-margin">
+                    <article class="reason-article-box fadeUp">
+                        <div class="number">01</div>
+                        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&q=80" alt="専門性の高いカウンセリング">
+                        <div class="reason-sentence">
+                            <h3 class="japanese-text">専門家による対面カウンセリングで、本当の体質を見極めます</h3>
+                            <p class="japanese-text">
+                                薬剤師・管理栄養士による詳細なヒアリングと体質チェックで、市販のサプリでは見つけられない<span>あなただけの最適解</span>を発見。既往歴、服薬状況、アレルギーまで考慮した安全で効果的な配合を実現します。単なる栄養補助ではなく、医学的根拠に基づいた健康管理をご提供します。
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="reason-article-box fadeUp">
+                        <div class="number">02</div>
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&q=80" alt="科学的根拠に基づく配合">
+                        <div class="reason-sentence">
+                            <h3 class="japanese-text">「配合」だけじゃない。相互作用まで考慮した総合設計</h3>
+                            <p class="japanese-text">
+                                単に成分を混ぜるだけではなく、栄養素同士の相乗効果や阻害要因、吸収を高める組み合わせまで科学的に設計。<span>飲むタイミングや食事との関係性</span>も含めた包括的なアプローチで、市販サプリでは実現できない高い効果と安全性を両立します。
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="reason-article-box fadeUp">
+                        <div class="number">03</div>
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&q=80" alt="東銀座の利便性">
+                        <div class="reason-sentence">
+                            <h3 class="japanese-text">東銀座駅直結、忙しい方でも通いやすい立地とプライバシー重視</h3>
+                            <p class="japanese-text">
+                                銀座・有楽町からもアクセス抜群の東銀座駅至近。仕事帰りやショッピングの合間に気軽にお立ち寄りいただけます。<span>完全個室でのカウンセリング</span>により、デリケートな健康の悩みも安心してご相談いただけます。オンラインフォローにも対応し、継続しやすい環境を整えています。
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="reason-article-box fadeUp">
+                        <div class="number">04</div>
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop&q=80" alt="継続的なサポート">
+                        <div class="reason-sentence">
+                            <h3 class="japanese-text">作って終わりじゃない。変化に合わせた継続的なアップデート</h3>
+                            <p class="japanese-text">
+                                季節の変化、ライフステージの変化、体調の変化に合わせて定期的にレシピを見直し。<span>フォロー外来では効果測定と配合調整</span>を実施し、常に最適化されたサプリをご提供。「続けているうちに効果がなくなった」という問題を解決する、継続的なパートナーシップを築きます。
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Reasons Section End -->
+
+        <!-- Contact Box 3 Start -->
+        <section class="contact-box">
+            <div class="contact-box-inner wrapper">
+                <p class="contact-box-catchphrase japanese-text">
+                    「今度こそ続けられるサプリに出会いたい」「本当に効果のある方法を知りたい」<br>そんな想いにお応えします。
+                </p>
+                <div class="g-nav-orderBox-title contact-box-subTitle">
+                    ＼まずはお気軽にご相談ください／
+                </div>
+                <h2 class="contact-box-title japanese-text">
+                    初回カウンセリング無料実施中
+                </h2>
+                <div class="contact-box-flex">
+                    <a href="tel:03-1234-5678" class="gradient-link tel-link">
+                        <span class="tel-icon"></span>
+                        03-1234-5678
+                    </a>
+                    <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="gradient-link web-link">
+                        無料カウンセリングを予約する
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Box 3 End -->
+
+        <div class="section-divider"></div>
+
+        <!-- Usage Section Start -->
+        <section id="use" class="section-box" style="padding: 150px 0; background: white;">
+            <div class="wrapper">
+                <h2 class="h2-title border-line fadeUp japanese-text">
+                    ご利用の流れ
+                </h2>
+                
+                <div class="use-grid article-margin">
+                    <article class="use-article opacityIn">
+                        <div class="step-number">STEP<span>01</span></div>
+                        <h3 class="use-title japanese-text">無料カウンセリング・現状ヒアリング</h3>
+                        <div class="use-box">
+                            <div class="use-image-box">
+                                <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=200&fit=crop&q=80" alt="カウンセリング">
+                            </div>
+                            <p class="japanese-text">
+                                お電話またはWebフォームからご予約ください。初回は無料で、現在のお悩み、既往歴、生活習慣、服薬状況などを詳しくヒアリング。約60分間、じっくりとあなたの健康状態を把握します。
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="use-article opacityIn">
+                        <div class="step-number">STEP<span>02</span></div>
+                        <h3 class="use-title japanese-text">体質評価・個別レシピ設計</h3>
+                        <div class="use-box">
+                            <div class="use-image-box">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=200&fit=crop&q=80" alt="体質評価">
+                            </div>
+                            <p class="japanese-text">
+                                専門家がヒアリング内容を分析し、あなたの体質に最適な成分配合を設計。相互作用や吸収率を考慮した科学的根拠に基づくオリジナルレシピを作成します。約1週間でレシピが完成します。
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="use-article opacityIn">
+                        <div class="step-number">STEP<span>03</span></div>
+                        <h3 class="use-title japanese-text">レシピ説明・摂取方法のご提案</h3>
+                        <div class="use-box">
+                            <div class="use-image-box">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop&q=80" alt="説明">
+                            </div>
+                            <p class="japanese-text">
+                                完成したレシピの内容と、最適な摂取タイミング、食事との組み合わせ方をご説明。なぜその成分が必要なのか、どのような効果が期待できるのかを分かりやすくお伝えします。
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="use-article opacityIn">
+                        <div class="step-number">STEP<span>04</span></div>
+                        <h3 class="use-title japanese-text">オーダーメイドサプリお届け・サポート開始</h3>
+                        <div class="use-box">
+                            <div class="use-image-box">
+                                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=200&fit=crop&q=80" alt="お届け">
+                            </div>
+                            <p class="japanese-text">
+                                ご承諾いただけましたら、個別分包されたオーダーメイドサプリをお届け。摂取リマインドアプリのご案内と、効果測定のための記録方法もご説明します。サポート体制も開始されます。
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="use-article opacityIn">
+                        <div class="step-number">STEP<span>05</span></div>
+                        <h3 class="use-title japanese-text">定期フォロー・効果測定とレシピ調整</h3>
+                        <div class="use-box">
+                            <div class="use-image-box">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=200&fit=crop&q=80" alt="フォロー">
+                            </div>
+                            <p class="japanese-text">
+                                1ヶ月後、3ヶ月後に効果測定とレシピ見直しを実施。体調の変化や季節の変化に合わせて配合を調整し、常に最適化されたサプリメントをご提供します。オンラインでのフォローも可能です。
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Usage Section End -->
+
+        <div class="section-divider"></div>
+
+        <!-- Price Section Start -->
+        <section id="price" class="section-box" style="padding: 150px 0; background: var(--light-gray);">
+            <div class="wrapper">
+                <h2 class="h2-title border-line fadeUp japanese-text">
+                    料金プラン
+                </h2>
+                
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <div style="background: white; border-radius: 20px; padding: 60px 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 40px;">
+                        <div style="background: var(--main-theme-color); color: white; padding: 15px 30px; border-radius: 25px; display: inline-block; margin-bottom: 30px; font-size: 1.2rem; font-weight: 600;">
+                            初回限定特別価格
+                        </div>
+                        <div style="font-size: 1.5rem; margin-bottom: 20px; color: var(--charcoal);">初回カウンセリング</div>
+                        <div style="font-size: 6rem; font-weight: 700; color: var(--main-theme-color); margin: 20px 0;">
+                            <span style="font-size: 3rem;">￥</span>0
+                            <span style="font-size: 2rem; color: #999; margin-left: 10px;">円</span>
+                        </div>
+                        <div style="color: var(--main-theme-color); font-size: 1.3rem; margin-bottom: 30px; font-weight: 600;">
+                            ※通常￥15,000相当が今なら無料
+                        </div>
+                        <div style="font-size: 1.2rem; color: var(--charcoal); line-height: 1.6; margin-bottom: 40px;">
+                            体質評価・個別レシピ作成・摂取方法指導まで含めて完全無料。<br>
+                            まずはお気軽にあなたの健康状態をチェックしてください。
+                        </div>
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer" style="background: var(--main-theme-color); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-size: 1.4rem; font-weight: 600; display: inline-block; transition: all 0.3s ease;">
+                            無料カウンセリングを予約する
+                        </a>
+                    </div>
+                    
+                    <div style="background: white; border-radius: 15px; padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <h3 style="font-size: 1.8rem; color: var(--main-theme-color); margin-bottom: 20px;">オーダーメイドサプリ（継続利用）</h3>
+                        <div style="font-size: 2.5rem; font-weight: 600; color: var(--main-theme-color); margin-bottom: 15px;">
+                            月額 ￥12,000〜￥25,000
+                        </div>
+                        <div style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">
+                            ※配合内容・個数により変動いたします
+                        </div>
+                        <ul style="list-style: none; text-align: left; color: var(--charcoal); font-size: 1.1rem; line-height: 2;">
+                            <li> 個別分包サプリメント（1ヶ月分）</li>
+                            <li> 摂取リマインドアプリ</li>
+                            <li> 月1回の効果測定フォロー</li>
+                            <li> 配合調整（必要時）</li>
+                            <li> オンライン相談対応</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Price Section End -->
+
+        <div class="section-divider"></div>
+
+        <!-- Testimonials Section Start -->
+        <section id="voice" class="section-box" style="padding: 150px 0; background: white;">
+            <div class="wrapper">
+                <h2 class="h2-title border-line fadeUp japanese-text">
+                    お客様の声
+                </h2>
+                
+                <div class="article-margin" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                    <article style="background: var(--light-gray); border-radius: 15px; padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b55c?w=150&h=150&fit=crop&q=80" alt="A様" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px;">
+                            <div>
+                                <h3 style="font-size: 1.3rem; color: var(--main-theme-color); margin-bottom: 5px;">A様（35歳・会社員）</h3>
+                                <div style="color: #666;">東京都在住</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 1.2rem; line-height: 1.7; color: var(--charcoal);" class="japanese-text">
+                            今まで何種類ものサプリを試しましたが、どれも続かず効果も実感できませんでした。メディプロ医薬さんのオーダーメイドサプリは、飲むタイミングまで教えてもらえて、3週間目から肌の調子が明らかに良くなりました。個別分包なので持ち運びも楽で、忙しい毎日でも続けられています。
+                        </p>
+                    </article>
+                    
+                    <article style="background: var(--light-gray); border-radius: 15px; padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&q=80" alt="B様" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px;">
+                            <div>
+                                <h3 style="font-size: 1.3rem; color: var(--main-theme-color); margin-bottom: 5px;">B様（42歳・自営業）</h3>
+                                <div style="color: #666;">神奈川県在住</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 1.2rem; line-height: 1.7; color: var(--charcoal);" class="japanese-text">
+                            更年期の症状で悩んでいましたが、体質に合わせた配合のおかげで、以前より体調が安定するようになりました。定期的なフォローで配合を調整してもらえるのも安心です。東銀座という立地も通いやすく、プライベートな相談も気軽にできます。
+                        </p>
+                    </article>
+                    
+                    <article style="background: var(--light-gray); border-radius: 15px; padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; margin-bottom: 30px;">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&q=80" alt="C様" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px;">
+                            <div>
+                                <h3 style="font-size: 1.3rem; color: var(--main-theme-color); margin-bottom: 5px;">C様（29歳・マーケター）</h3>
+                                <div style="color: #666;">東京都在住</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 1.2rem; line-height: 1.7; color: var(--charcoal);" class="japanese-text">
+                            仕事のストレスと不規則な生活で体調不良が続いていました。カウンセリングで生活習慣まで含めたアドバイスをもらい、サプリの効果と合わせて体調が大幅に改善。コストも以前バラバラに買っていたサプリより安くなり、効果も段違いです。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials Section End -->
+
+        <!-- Contact Box 4 Start -->
+        <section class="contact-box">
+            <div class="contact-box-inner wrapper">
+                <p class="contact-box-catchphrase japanese-text">
+                    「もう合わないサプリで悩みたくない」「自分だけの最短ルートを見つけたい」<br>そんなあなたのために、私たちがいます。
+                </p>
+                <div class="g-nav-orderBox-title contact-box-subTitle">
+                    ＼今なら初回カウンセリング無料／
+                </div>
+                <h2 class="contact-box-title japanese-text">
+                    あなた専用のサプリメント体験を
+                </h2>
+                <div class="contact-box-flex">
+                    <a href="tel:03-1234-5678" class="gradient-link tel-link">
+                        <span class="tel-icon"></span>
+                        03-1234-5678
+                    </a>
+                    <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="gradient-link web-link">
+                        無料カウンセリングを予約する
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Box 4 End -->
+
+        <div class="section-divider"></div>
+
+        <!-- Form Section Start -->
+        <section id="order-form" class="section-box" style="padding: 150px 0; background: var(--light-gray);">
+            <div class="wrapper">
+                <h2 class="h2-title border-line fadeUp japanese-text">
+                    無料カウンセリング予約フォーム
+                </h2>
+                
+                <div class="article-margin">
+                    <div class="tab-switch">
+                        <input class="form-tab" type="radio" name="TAB" id="tab-request" checked>
+                        <label for="tab-request">無料カウンセリング予約</label>
+                        
+                        <input class="form-tab" type="radio" name="TAB" id="tab-consultation">
+                        <label for="tab-consultation">ご相談・お問い合わせ</label>
+                        
+                        <form class="order-form-box" method="post" action="">
+                            <input type="hidden" name="_token" value="ReKAybUrG3lAVn3WnAnV04vaMeRp180WBoBT6U3T" autocomplete="off">
+                            
+                            <label class="label-title" for="your-name">
+                                お名前
+                                <span class="required-span">必須</span>
+                            </label>
+                            <input type="text" id="your-name" name="your-name" autocomplete="name" required>
+                            
+                            <label class="label-title" for="tel">
+                                お電話番号
+                                <span class="required-span">必須</span>
+                            </label>
+                            <input type="tel" id="tel" name="tel" inputmode="tel" autocomplete="tel" pattern="0[1-9]{3}[0-9]{6}|0[1-9]0[0-9]{8}" required>
+                            
+                            <label class="label-title" for="email">
+                                メールアドレス
+                                <span class="required-span">必須</span>
+                            </label>
+                            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required>
+                            
+                            <label class="label-title" for="age">
+                                年齢
+                                <span class="any-span">任意</span>
+                            </label>
+                            <select id="age" name="age">
+                                <option value="" disabled selected>年齢を選択してください</option>
+                                <option value="20s">20代</option>
+                                <option value="30s">30代</option>
+                                <option value="40s">40代</option>
+                                <option value="50s">50代</option>
+                                <option value="60s">60代以上</option>
+                            </select>
+                            
+                            <label class="label-title" for="concerns">
+                                現在のお悩み
+                                <span class="required-span">必須</span>
+                            </label>
+                            <select id="concerns" name="concerns" required>
+                                <option value="" disabled selected>お悩みを選択してください</option>
+                                <option value="skin">肌荒れ・美容関連</option>
+                                <option value="fatigue">疲労・体力低下</option>
+                                <option value="sleep">睡眠の質</option>
+                                <option value="weight">体重管理</option>
+                                <option value="immunity">免疫力向上</option>
+                                <option value="hormone">ホルモンバランス</option>
+                                <option value="other">その他</option>
+                            </select>
+                            
+                            <label class="label-title" for="desired-date">
+                                希望カウンセリング日時
+                                <span class="any-span">任意</span>
+                            </label>
+                            <input type="date" id="desired-date" name="desired-date" style="width: 100%; padding: 15px; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 30px;">
+                            
+                            <label class="label-title" for="comment">
+                                ご質問・ご要望
+                                <span class="any-span">任意</span>
+                            </label>
+                            <textarea id="comment-text" name="comment" placeholder="現在飲んでいるサプリメント、アレルギー、その他ご質問などがございましたらご記入ください。"></textarea>
+                            
+                            <div class="attention">
+                                ※内容確認後、担当者より折り返しご連絡差し上げます。
+                            </div>
+                            
+                            <div class="submit-button">
+                                <button type="submit">無料カウンセリングを予約する</button>
+                            </div>
+                        </form>
+                        
+                        <form class="order-form-box" method="post" action="">
+                            <input type="hidden" name="_token" value="ReKAybUrG3lAVn3WnAnV04vaMeRp180WBoBT6U3T" autocomplete="off">
+                            
+                            <label class="label-title" for="your-name-contact">
+                                お名前
+                                <span class="required-span">必須</span>
+                            </label>
+                            <input type="text" id="your-name-contact" name="your-name" required>
+                            
+                            <label class="label-title" for="tel-contact">
+                                お電話番号
+                                <span class="required-span">必須</span>
+                            </label>
+                            <input type="tel" id="tel-contact" name="tel" inputmode="tel" autocomplete="tel" pattern="0[1-9]{3}[0-9]{6}|0[1-9]0[0-9]{8}" required>
+                            
+                            <label class="label-title" for="email-contact">
+                                メールアドレス
+                                <span class="required-span">必須</span>
+                            </label>
+                            <input type="email" id="email-contact" name="email" autocomplete="email" inputmode="email" required>
+                            
+                            <label class="label-title" for="comment-contact">
+                                ご相談内容
+                                <span class="any-span">任意</span>
+                            </label>
+                            <textarea id="comment-text-contact" name="comment" placeholder="サプリメントに関するご質問や、健康に関するお悩みなど、お気軽にご記入ください。"></textarea>
+                            
+                            <div class="attention">
+                                ※内容確認後、担当者より折り返しご連絡差し上げます。
+                            </div>
+                            
+                            <div class="submit-button">
+                                <button type="submit">相談内容を送信する</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Form Section End -->
+    </main>
+
+    <!-- Footer Start -->
+    <footer id="footer" class="order-box-view">
+        <section class="footer-flex section-box wrapper">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=100&fit=crop&q=80" alt="メディプロ医薬">
+            
+            <table class="footer-info">
+                <tbody>
+                    <tr>
+                        <th>運営会社</th>
+                        <td>株式会社メディプロ医薬</td>
+                    </tr>
+                    <tr>
+                        <th>代表取締役</th>
+                        <td>健康 太郎</td>
+                    </tr>
+                    <tr>
+                        <th>住所</th>
+                        <td>〒104-0061 東京都中央区銀座4-10-10</td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td>
+                            <a href="tel:03-1234-5678" class="footer-tel-link">03-1234-5678</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <div class="footer-bottom">
+            ©2025 メディプロ医薬
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Sticky CTA Start -->
+    <div class="sticky-cta">
+        <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="cta-button">
+            <span></span>
+            無料カウンセリングを予約する
+        </a>
+    </div>
+    <!-- Sticky CTA End -->
+
+    <!-- Page Top Button Start -->
+    <div class="pagetop">
+        <a href="#">↑</a>
+    </div>
+    <!-- Page Top Button End -->
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.querySelector('.btn');
+            const nav = document.querySelector('#g-nav');
+            
+            btn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+        });
+
+        // Scroll Animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fadeUp, .fadeIn, .opacityIn');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Sticky CTA and Page Top Button
+        function handleStickyElements() {
+            const stickyCta = document.querySelector('.sticky-cta');
+            const pageTop = document.querySelector('.pagetop');
+            const scrollTop = window.pageYOffset;
+            
+            if (scrollTop > 500) {
+                stickyCta.classList.add('show');
+                pageTop.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+                pageTop.classList.remove('show');
+            }
+        }
+
+        // Smooth Scroll
+        function smoothScroll() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Form Tab Switching
+        function initTabSwitching() {
+            const tabs = document.querySelectorAll('.form-tab');
+            const forms = document.querySelectorAll('.order-form-box');
+            
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('change', function() {
+                    forms.forEach((form, formIndex) => {
+                        if (formIndex === index) {
+                            form.style.display = 'block';
+                        } else {
+                            form.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // Header Scroll Effect
+        function handleHeaderScroll() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        }
+
+        // Event Listeners
+        window.addEventListener('scroll', function() {
+            handleScrollAnimations();
+            handleStickyElements();
+            handleHeaderScroll();
+        });
+
+        window.addEventListener('load', function() {
+            handleScrollAnimations();
+            smoothScroll();
+            initTabSwitching();
+        });
+
+        // Form Submission (Demo)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('お問い合わせを受け付けました。担当者より折り返しご連絡差し上げます。');
+            });
+        });
+    </script>
+</body>
+</html>
